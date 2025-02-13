@@ -122,12 +122,6 @@ html,body{
               
             }
         }
-        .invert-blue{
-            filter: invert(27%) sepia(87%) saturate(1715%) hue-rotate(202deg) brightness(91%) contrast(97%);
-            @include mediaQuery($xxl){
-                filter: none;
-            }
-        }
         .language-btn-toggle{
             color: $White;
             text-decoration: none;

@@ -37,7 +37,7 @@
                <span class="navbar-toggler-icon"></span>
              </button>
              <a href="#"  class="language-btn custom-s-show text-white text-decoration-none">
-               <img src="./assets/img/Globe.svg" class="invert-blue" alt="Language">
+              <img src="./assets/img/Globe.svg"  alt="Language">
                <span>ع</span>
              </a>
            </div>
@@ -63,8 +63,8 @@
                   <button class="filled-btn">Sign in</button>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                  <img src="./assets/img/search.svg" class="invert-blue" alt="Search Icon">
-                  <a href="#"  id="language-toggle" class="language-btn  custom-v-hide text-white text-decoration-none">
+                  <img src="./assets/img/search.svg"  alt="Search Icon">
+                  <a href="#"   class="language-btn  custom-v-hide text-white text-decoration-none">
                     <img src="./assets/img/Globe.svg"  alt="Language">
                     <span>ع</span>
                   </a>
@@ -221,7 +221,6 @@
 
           // Update Menu Items
           document.querySelector('.nav-item a[href="#"]').textContent = translations[lang].home;
-          document.querySelector('.language-btn span').textContent = translations[lang].lang;
           document.querySelectorAll(".nav-item a")[1].textContent = translations[lang].about;
           document.querySelectorAll(".nav-item a")[2].textContent = translations[lang].useCases;
           document.querySelectorAll(".nav-item a")[3].textContent = translations[lang].developers;
@@ -236,7 +235,9 @@
           // Update Buttons
           document.querySelector(".solid-btn").textContent = translations[lang].getInTouch;
           document.querySelector(".filled-btn").textContent = translations[lang].signIn;
-          document.querySelector(".language-btn").textContent = translations[lang].lang
+
+          // Update Both Language Buttons (inside and outside the offcanvas menu)
+          document.querySelectorAll(".language-btn span").forEach(btn => btn.textContent = translations[lang].lang);
 
           // Save the selected language to localStorage
           localStorage.setItem("selectedLanguage", lang);
@@ -245,14 +246,17 @@
       // Apply the saved language on page load
       applyLanguage(currentLanguage);
 
-      // Toggle language when clicking the button
-      document.getElementById("language-toggle").addEventListener("click", function (event) {
-          event.preventDefault();
-          currentLanguage = currentLanguage === "en" ? "ar" : "en";
-          applyLanguage(currentLanguage);
+      // Add event listeners to both language buttons (inside and outside the offcanvas)
+      document.querySelectorAll(".language-btn").forEach(button => {
+          button.addEventListener("click", function (event) {
+              event.preventDefault();
+              currentLanguage = currentLanguage === "en" ? "ar" : "en";
+              applyLanguage(currentLanguage);
+          });
       });
   });
 </script>
+
 
 
 

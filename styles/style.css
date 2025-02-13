@@ -217,14 +217,6 @@ html, body {
   background-color: #00B2E2;
   color: #FFFFFF;
 }
-.hero-bg .actions .invert-blue {
-  filter: invert(27%) sepia(87%) saturate(1715%) hue-rotate(202deg) brightness(91%) contrast(97%);
-}
-@media (min-width: 1400px) {
-  .hero-bg .actions .invert-blue {
-    filter: none;
-  }
-}
 .hero-bg .actions .language-btn-toggle {
   color: #FFFFFF;
   text-decoration: none;
